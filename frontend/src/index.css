@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #F7F4EF;
+    color: #1C1C1E;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Elegant Scrollbar ─────────────────────────────────── */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #EDEAE3;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #9A9A8E;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6B7055;
+  }
+
+  /* ── Focus Styles ──────────────────────────────────────── */
+  :focus-visible {
+    outline: 2px solid #C8A96E;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* ── Selection ─────────────────────────────────────────── */
+  ::selection {
+    background: #C8A96E33;
+    color: #1C1C1E;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-charcoal text-cream font-body font-medium px-6 py-3 rounded-none
+           hover:bg-olive transition-colors duration-200 focus-visible:ring-2
+           focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply border border-charcoal text-charcoal font-body font-medium px-6 py-3
+           rounded-none hover:bg-charcoal hover:text-cream transition-colors duration-200;
+  }
+
+  .input-field {
+    @apply w-full bg-transparent border-b-2 border-muted text-charcoal font-body
+           text-lg py-3 px-0 outline-none placeholder-muted
+           focus:border-charcoal transition-colors duration-300;
+  }
+
+  .tag {
+    @apply inline-flex items-center gap-1 px-3 py-1 bg-surface text-olive
+           font-body text-xs font-medium uppercase tracking-wider;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
